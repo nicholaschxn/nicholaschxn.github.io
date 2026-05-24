@@ -1,5 +1,5 @@
 title: nicholaschxn
 description: my site
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: PQuod/simply-cyan-theme
 plugins:
   - jekyll-remote-theme
