@@ -1,5 +1,6 @@
-title: Your Site Title
-description: Your site description
+title: nicholaschxn
+description: my site
 remote_theme: chibicode/duo
 plugins:
   - jekyll-remote-theme
+  - jekyll-feed
