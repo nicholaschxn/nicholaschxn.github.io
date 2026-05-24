@@ -1,6 +1,6 @@
 title: hi
 description: my site
-remote_theme: ankitsultana/researcher
+remote_theme: jitinnair1/gradfolio
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
