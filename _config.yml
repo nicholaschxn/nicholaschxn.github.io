@@ -1,5 +1,6 @@
-title: title
+title: hi
 description: my site
 remote_theme: ankitsultana/researcher@gem
 plugins:
   - jekyll-remote-theme
+  - jekyll-feed
