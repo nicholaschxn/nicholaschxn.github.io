@@ -1,5 +1,9 @@
-html, body {
+html {
   height: 100%;
+}
+
+main {
+  flex: 1;
 }
 
 body {
@@ -12,7 +16,10 @@ body {
   background-color: $body-bg;
   padding: 2em 1em;
   text-rendering: optimizeLegibility;
-  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
     // remove dark mode >:)
 //   @media (prefers-color-scheme: dark) {
