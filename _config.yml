@@ -1,7 +1,7 @@
 ### your site title here
 
-title: Your Name
-description: subtitle | affiliations | motto
+title: Nicholas Chin
+description: math and cs @ uchicago 🧮💻
 
 baseurl: ""
 url: "https://nicholaschxn.github.io"
@@ -13,15 +13,9 @@ permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
-linkedin: "#"
-stackoverflow: "#"
-github: "#"
-researchgate: "#"
-orcid: "#"
-quora: "#"
-instagram: "#"
-facebook: "#"
-bluesky: "#"
+linkedin: "https://www.linkedin.com/in/nicholasmchin/"
+github: "https://github.com/nicholaschxn"
+
 
 # Markdown
 highlighter: rouge
