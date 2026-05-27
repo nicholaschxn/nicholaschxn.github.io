@@ -6,8 +6,9 @@ published: true
 ---
 
 <div class="article-list">
-  {% for project in site.projects %}
-    <h3><a href="{{ project.url | prepend: site.baseurl | prepend: site.url }}">{{ project.title }}</a></h3>
+  {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+  {% for project in sorted_projects %}
+    <h3><a href="{{ project.url | prepend: site.baseurl }}">{{ project.title }}</a></h3>
     <p>{{ project.description }}</p>
   {% endfor %}
 </div>
