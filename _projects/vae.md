@@ -2,7 +2,7 @@
 layout: post
 title: Discrete Neural Representation Learning for Piano Audio
 description: Designed and built an RVQ-VAE to tokenize piano audio
-date: 2026-05-26
+date: 2026-05-25
 ---
 
 Paragraphs are separated by a blank line.
