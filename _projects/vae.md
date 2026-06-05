@@ -7,7 +7,7 @@ date: 2026-05-25
 
 I implemented an RVQ-VAE with 1D convolutional layers and trained it on raw audio waveforms from the MAESTRO dataset of piano audio, then analyzed the codebook tokens and found that the tokens from earlier codebooks encode acoustic energy while later codebooks don't encode acoustic energy or any meaningful MIDI features (paper linked <a href="/assets/pdfs/vae-paper.pdf" target="_blank">here</a>).
 
-A couple of examples of the reconstructed audio are below. Since I trained on the MAESTRO dataset which consisted of very high quality recordings from a digital piano, the reconstruction quality for audio from acoustic pianos where the recording quality is also worse isn't as good.
+Recontruction quality wasn't the main focus of the project but a couple of examples of the reconstructed audio are below. Since I trained on the MAESTRO dataset which consisted of very high quality recordings from a digital piano, the reconstruction quality for audio from acoustic pianos where the recording quality is also worse (i.e. me recording myself playing on my phone) isn't as good.
 
 <figure style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 3em;">
   <div style="display: flex; gap: 2em;">
