@@ -5,134 +5,81 @@ description: Designed and built an RVQ-VAE to tokenize piano audio
 date: 2026-05-25
 ---
 
-Paragraphs are separated by a blank line.
+I implemented an RVQ-VAE with 1D convolutional layers and trained it on raw audio waveforms from the MAESTRO dataset of piano audio, then analyzed the codebook tokens and found that the tokens from earlier codebooks encode acoustic energy while later codebooks don't encode acoustic energy or any meaningful MIDI features (paper linked <a href="/assets/pdfs/vae-paper.pdf" target="_blank">here</a>).
 
-2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
-look like:
+A couple of examples of the reconstructed audio are below. Since I trained on the MAESTRO dataset which consisted of very high quality recordings from a digital piano, the reconstruction quality for audio from acoustic pianos where the recording quality is also worse isn't as good.
 
-  * this one
-  * that one
-  * the other one
-
-Note that the actual text
-content starts at 4-columns in.
-
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
-
-
-H2 Header
-------------
-
-Here's a numbered list:
-
- 1. first item
- 2. second item
- 3. third item
-
-Note again how the actual text starts at 4 columns in (4 characters
-from the left side). Here's a code sample:
-
-    # Let me re-iterate ...
-    for i in 1 .. 10 { do-something(i) }
-
-As you probably guessed, indented 4 spaces. By the way, instead of
-indenting the block, you can use delimited blocks, if you like:
-
-~~~
-define foobar() {
-    print "Welcome to flavor country!";
-}
-~~~
-
-(which makes copying & pasting easier). You can optionally mark the
-delimited block for Pandoc to syntax highlight it by specifying the languagae after the start of a block (e.g. `~~~python`) which would look like :
-
-~~~python
-import time
-# Quick, count to ten!
-for i in range(10):
-    # (but not *too* quick)
-    time.sleep(0.5)
-    print(i)
-~~~
-
-### An H3 header ###
-
-Now a nested list:
-
- 1. First, get these ingredients:
-
-      * carrots
-      * celery
-      * lentils
-
- 2. Boil some water.
-
- 3. Dump everything in the pot and follow
-    this algorithm:
-
-        find wooden spoon
-        uncover pot
-        stir
-        cover pot
-        balance wooden spoon precariously on pot handle
-        wait 10 minutes
-        goto first step (or shut off burner when done)
-
-    Do not bump wooden spoon or it will fall.
-
-Notice again how text always lines up on 4-space indents (including
-that last line which continues item 3 above).
-
-Here's a footnote [^1].
-
-[^1]: Some footnote text.
-
-Tables can look like this:
-
-| Header 1 | Header 2                   | Header 3 |
-|:--------:|:--------------------------:|:--------:|
-| data1a   | Data is longer than header | 1        |
-| d1b      | add a cell                 |          |
-| lorem    | ipsum                      | 3        |
-|          | empty outside cells        |          |
-| skip     |                            | 5        |
-| six      | Morbi purus                | 6        |
+<figure style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 3em;">
+  <div style="display: flex; gap: 2em;">
+    <div>
+      <audio controls>
+        <source src="{{ '/assets/audio/nocturne original.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <figcaption style="font-size: 0.8em; color: gray">Original audio</figcaption>
+    </div>
+    <div>
+      <audio controls>
+        <source src="{{ '/assets/audio/nocturne compressed.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <figcaption style="font-size: 0.8em; color: gray">Reconstructed audio</figcaption>
+    </div>
+  </div>
+  <figcaption style="font-size: 0.8em; margin-top: 0.5em;">Chopin Op 9, No. 2 from MAESTRO dataset (part of validation set)</figcaption>
+  <figure style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 3em;">
+</figure>
 
 
-A horizontal rule follows.
+<figure style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <div style="display: flex; gap: 2em;">
+    <div>
+      <audio controls>
+        <source src="{{ '/assets/audio/nocturne 3 original.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <figcaption style="font-size: 0.8em; color: gray">Original audio</figcaption>
+    </div>
+    <div>
+      <audio controls>
+        <source src="{{ '/assets/audio/nocturne 3 compressed.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <figcaption style="font-size: 0.8em; color: gray">Reconstructed audio</figcaption>
+    </div>
+  </div>
+  <figcaption style="font-size: 0.8em; margin-top: 0.5em;">Chopin Op 9, No. 3 from MAESTRO dataset (part of test set)</figcaption>
+</figure>
 
-***
+<figure style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 3em;">
+  <div style="display: flex; gap: 2em;">
+    <div>
+      <audio controls>
+        <source src="{{ '/assets/audio/me original.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <figcaption style="font-size: 0.8em; color: gray">Original audio</figcaption>
+    </div>
+    <div>
+      <audio controls>
+        <source src="{{ '/assets/audio/me compressed.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <figcaption style="font-size: 0.8em; color: gray">Reconstructed audio</figcaption>
+    </div>
+  </div>
+  <figcaption style="font-size: 0.8em; margin-top: 0.5em;">Me playing Liebestraum No. 3</figcaption>
+  <figure style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 3em;">
+</figure>
 
-Here's a definition list:
-
-apples
-  : Good for making applesauce.
-
-oranges
-  : Citrus!
-
-tomatoes
-  : There's no "e" in tomatoe.
-
-Again, text is indented 4 spaces. (Put a blank line between each
-term and  its definition to spread things out more.)
-
-Here's a "line block" (note how whitespace is honored):
-
-| Line one
-|   Line too
-| Line tree
-
-and images can be specified like so:
-
-![example image](https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=300&h=300&fit=crop "An exemplary image")
-
-Inline math equation: $\omega = d\phi / dt$. Display
-math should get its own line like so:
-
-$$I = \int \rho R^{2} dV$$
+<figure style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <div style="display: flex; gap: 2em;">
+    <div>
+      <audio controls>
+        <source src="{{ '/assets/audio/me ballade original.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <figcaption style="font-size: 0.8em; color: gray">Original audio</figcaption>
+    </div>
+    <div>
+      <audio controls>
+        <source src="{{ '/assets/audio/me ballade compressed.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <figcaption style="font-size: 0.8em; color: gray">Reconstructed audio</figcaption>
+    </div>
+  </div>
+  <figcaption style="font-size: 0.8em; margin-top: 0.5em;">Me playing Chopin Ballade No. 1</figcaption>
+</figure>
